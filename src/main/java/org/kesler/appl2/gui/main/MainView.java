@@ -44,7 +44,7 @@ public class MainView extends JFrame {
 
 
 	public MainView(MainViewController controller) {
-		super("Регистрация заявителей в Росреестре");
+		super("Регистрация заявителей МФЦ");
 
 		this.controller = controller;
 		

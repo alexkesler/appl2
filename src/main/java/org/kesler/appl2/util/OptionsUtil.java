@@ -77,8 +77,8 @@ public class OptionsUtil {
 		options = new Properties();
 		options.setProperty("db.server","");
 		options.setProperty("db.driver", "h2 local");
-		options.setProperty("db.user","rroper");
-		options.setProperty("db.password", "q1w2e3R$");
+		options.setProperty("db.user","oper");
+		options.setProperty("db.password", "Qwerty123");
 		options.setProperty("reg.filial", "01");
 		options.setProperty("logic.initRecStatusCode", "1");
 		options.setProperty("print.request","request.docx");

@@ -62,7 +62,7 @@ public class IP extends AbstractEntity {
 		return "ИП " + fl.getShortFIO();
 	}
 
-	public String setFullName() {
+	public String getFullName() {
 		return "ИП " + fl.getFIO(); 
 	}
 
