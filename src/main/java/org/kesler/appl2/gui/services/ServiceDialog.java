@@ -22,7 +22,8 @@ public class ServiceDialog extends JDialog {
 	private Service service;
 
     private JTextField codeTextField;
-	private JTextArea nameTextArea;
+    private JTextArea shortNameTextArea;
+	private JTextArea fullNameTextArea;
 	private JCheckBox enabledCheckBox;
 
 	public ServiceDialog(JDialog parentDialog) {
@@ -63,18 +64,26 @@ public class ServiceDialog extends JDialog {
 
         codeTextField = new JTextField(10);
 
-		nameTextArea = new JTextArea();
-		nameTextArea.setLineWrap(true);
-		nameTextArea.setWrapStyleWord(true);
-		JScrollPane nameTextAreaScrollPane = new JScrollPane(nameTextArea);
+		shortNameTextArea = new JTextArea();
+		shortNameTextArea.setLineWrap(true);
+		shortNameTextArea.setWrapStyleWord(true);
+		JScrollPane shortNameTextAreaScrollPane = new JScrollPane(shortNameTextArea);
+
+
+		fullNameTextArea = new JTextArea();
+		fullNameTextArea.setLineWrap(true);
+		fullNameTextArea.setWrapStyleWord(true);
+		JScrollPane fullNameTextAreaScrollPane = new JScrollPane(fullNameTextArea);
 		//nameTextAreaScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
 		enabledCheckBox = new JCheckBox("Действующая");
 
         dataPanel.add(new JLabel("Номер соглашения"));
         dataPanel.add(codeTextField, "wrap");
-		dataPanel.add(new JLabel("Наименование: "), "wrap");
-		dataPanel.add(nameTextAreaScrollPane, "span, pushy, grow");
+		dataPanel.add(new JLabel("Сокращенное наименование: "), "wrap");
+		dataPanel.add(shortNameTextAreaScrollPane, "span, h 50, grow");
+		dataPanel.add(new JLabel("Полное наименование (для запроса): "), "wrap");
+		dataPanel.add(fullNameTextAreaScrollPane, "span, pushy, grow");
 		dataPanel.add(enabledCheckBox);
 
 		// Панель кнопок
@@ -115,7 +124,7 @@ public class ServiceDialog extends JDialog {
 
 		loadGUIFromService();
 
-		nameTextArea.requestFocus();
+		shortNameTextArea.requestFocus();
 
 	}
 
@@ -127,10 +136,15 @@ public class ServiceDialog extends JDialog {
         codeTextField.setText(code);
 
 
-        String name = service.getName();
-		if (name == null) name = "";
+        String shortName = service.getShortName();
+		if (shortName == null) shortName = "";
 
-		nameTextArea.setText(name);
+		shortNameTextArea.setText(shortName);
+
+        String fullName = service.getFullName();
+		if (fullName == null) fullName = "";
+
+		fullNameTextArea.setText(fullName);
 
 		Boolean enabled = service.getEnabled();
 		if (enabled == null) enabled = false;
@@ -143,14 +157,22 @@ public class ServiceDialog extends JDialog {
         String code = codeTextField.getText();
         service.setCode(code);
 
-		String name = nameTextArea.getText();
-		if (!name.isEmpty()) {
-			service.setName(name);
+		String shortName = shortNameTextArea.getText();
+		if (!shortName.isEmpty()) {
+			service.setShortName(shortName);
 		} else {
-			JOptionPane.showMessageDialog(this, "Наименование услуги не может быть пустым", "Ошибка", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Сокр наименование услуги не может быть пустым", "Ошибка", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		
+		String fullName = fullNameTextArea.getText();
+		if (!fullName.isEmpty()) {
+			service.setFullName(fullName);
+		} else {
+			JOptionPane.showMessageDialog(this, "Полное наименование услуги не может быть пустым", "Ошибка", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
 		service.setEnabled(enabledCheckBox.isSelected());
 
 		return true;

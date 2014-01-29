@@ -21,6 +21,7 @@ import org.kesler.appl2.gui.statistic.StatisticViewController;
 import org.kesler.appl2.gui.reception.MakeReceptionViewController;
 import org.kesler.appl2.gui.reception.ReceptionStatusListDialogController;
 import org.kesler.appl2.gui.applicator.FLListDialogController;
+import org.kesler.appl2.gui.applicator.IPListDialogController;
 import org.kesler.appl2.gui.applicator.ULListDialogController;
 import org.kesler.appl2.gui.reestr.ReestrViewController;
 
@@ -100,6 +101,9 @@ public class MainViewController implements MainViewListener,
 			case FLs: 
 				openFLs();
 				break;
+			case IPs: 
+				openIPs();
+				break;
 			case ULs: 
 				openULs();
 				break;
@@ -145,6 +149,7 @@ public class MainViewController implements MainViewListener,
 				mainView.getActionByCommand(MainViewCommand.OpenReceptionsReestr).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.OpenStatistic).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.FLs).setEnabled(true);
+				mainView.getActionByCommand(MainViewCommand.IPs).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.ULs).setEnabled(true);
 			}
 
@@ -153,6 +158,7 @@ public class MainViewController implements MainViewListener,
 				mainView.getActionByCommand(MainViewCommand.OpenReceptionsReestr).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.OpenStatistic).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.FLs).setEnabled(true);
+				mainView.getActionByCommand(MainViewCommand.IPs).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.ULs).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.Services).setEnabled(true);
 				mainView.getActionByCommand(MainViewCommand.Operators).setEnabled(true);
@@ -298,6 +304,10 @@ public class MainViewController implements MainViewListener,
 
 	private void openFLs() {
 		FLListDialogController.getInstance().openDialog(mainView);
+	}
+
+	private void openIPs() {
+		IPListDialogController.getInstance().openDialog(mainView);
 	}
 
 	private void openULs() {

@@ -72,7 +72,7 @@ class ServiceMakeReceptionViewState extends MakeReceptionViewState {
 		// Устанавливаем поле Наименование услуги
 		String serviceName = "Не определена";
 		Service service = controller.getService();
-		if (service != null) serviceName = service.getName();
+		if (service != null) serviceName = service.getShortName();
 
 		view.getServicePanel().setServiceName(serviceName);
 

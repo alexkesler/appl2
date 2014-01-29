@@ -24,8 +24,11 @@ public class Service extends AbstractEntity {
 	@JoinColumn(name="parentID")
 	private Service parentService;
 
-	@Column(name="Name", length=255)
-	private String name;
+	@Column(name="ShortName", length=255)
+	private String shortName;
+
+	@Column(name="FullName", length=1024)
+	private String fullName;
 
     @Column(name="Code", length=50)
     private String code;
@@ -37,12 +40,12 @@ public class Service extends AbstractEntity {
 
 	public Service (Service parentService, String name, Boolean enabled) {
 		this.parentService = parentService;
-		this.name = name;
+		this.shortName = name;
 		this.enabled = enabled;
 	}
 
 	public Service(String name) {
-		this.name = name;
+		this.shortName = name;
 		this.enabled = true;
 	}
 
@@ -58,17 +61,26 @@ public class Service extends AbstractEntity {
 	public String getParentServiceName() {
 		String name = "Родительская услуга не определена";
 		if (parentService != null) {
-			name = parentService.getName();
+			name = parentService.getShortName();
 		}
 		return name;
 	}
 
-	public String getName() {
-		return name;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+		state = EntityState.CHANGED;
+	}
+
+	public String getShortName() {
+		return shortName;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 		state = EntityState.CHANGED;
 	}
 
@@ -87,7 +99,7 @@ public class Service extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return name;
+		return shortName;
 	}
 
 

@@ -116,6 +116,9 @@ public class MainView extends JFrame {
 		JMenuItem flsMenuItem = new JMenuItem(getActionByCommand(MainViewCommand.FLs));
 		flsMenuItem.setIcon(ResourcesUtil.getIcon(MainViewCommand.FLs.getIconName()));
 
+		JMenuItem ipsMenuItem = new JMenuItem(getActionByCommand(MainViewCommand.IPs));
+		ipsMenuItem.setIcon(ResourcesUtil.getIcon(MainViewCommand.IPs.getIconName()));
+
 		JMenuItem ulsMenuItem = new JMenuItem(getActionByCommand(MainViewCommand.ULs));
 		ulsMenuItem.setIcon(ResourcesUtil.getIcon(MainViewCommand.ULs.getIconName()));
 
@@ -123,6 +126,7 @@ public class MainView extends JFrame {
 		tasksMenu.add(reestrMenuItem);
 		// tasksMenu.add(statisticMenuItem);
 		tasksMenu.add(flsMenuItem);
+		tasksMenu.add(ipsMenuItem);
 		tasksMenu.add(ulsMenuItem);
 
 		// Меню справочников

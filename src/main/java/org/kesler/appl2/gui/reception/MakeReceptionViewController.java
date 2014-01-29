@@ -18,6 +18,7 @@ import org.kesler.appl2.logic.reception.ReceptionsModel;
 import org.kesler.appl2.gui.services.ServicesDialogController;
 import org.kesler.appl2.gui.main.CurrentOperator;
 import org.kesler.appl2.gui.applicator.ApplicatorFLDialog;
+import org.kesler.appl2.gui.applicator.ApplicatorIPDialog;
 import org.kesler.appl2.gui.applicator.ApplicatorULDialog;
 import org.kesler.appl2.export.ReceptionPrinter;
 import org.kesler.appl2.export.RosReestrReceptionPrinter;
@@ -216,6 +217,22 @@ public class MakeReceptionViewController {
 		}
 
 	}
+
+	void addApplicatorIP() {
+		ApplicatorIPDialog ipDialog = new ApplicatorIPDialog(view);
+		// Модальный диалог - ожидание закрытия
+		ipDialog.setVisible(true);
+		 
+		if (ipDialog.getResult() == ApplicatorFLDialog.OK) {
+			List<Applicator> applicators = reception.getApplicators();
+			Applicator applicator = ipDialog.getApplicatorIP();
+			applicator.setReception(reception);
+			applicators.add(applicator);
+			view.getApplicatorsPanel().applicatorAdded(applicators.size()-1);
+		}
+
+	}
+
 
 	void addApplicatorUL() {
 		ApplicatorULDialog ulDialog = new ApplicatorULDialog(view);

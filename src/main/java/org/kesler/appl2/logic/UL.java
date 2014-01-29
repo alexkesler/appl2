@@ -22,6 +22,12 @@ public class UL extends AbstractEntity {
 	@Column(name="ShortName")
 	private String shortName;
 
+	@Column(name="INN")
+	private String inn;
+
+	@Column(name="OGRN")
+	private String ogrn;
+
 	public UL () {}
 
 	public String getFullName() {
@@ -43,6 +49,22 @@ public class UL extends AbstractEntity {
 	public void setShortName(String shortName) {
 		this.shortName = shortName;
 	}
+
+	public String getINN() {
+		return inn;
+	}
+
+	public void setINN(String inn) {
+		this.inn = inn;
+	}
+
+	public String getOGRN() {
+		return ogrn;
+	}
+
+	public void setOGRN(String ogrn) {
+		this.ogrn = ogrn;
+	} 
 
 	@Override
 	public String toString() {

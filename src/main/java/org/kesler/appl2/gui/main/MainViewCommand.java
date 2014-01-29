@@ -11,6 +11,7 @@ public enum MainViewCommand {
 	OpenStatistic("Статистика","statistic", "chart_pie.png"),
 	OpenReceptionsReestr("Реестр","reestr","table.png"),
 	FLs("Физ лица", "fls", "group.png"),
+	IPs("ИП", "ips", "group.png"),
 	ULs("Юр лица", "uls", "chart_organisation.png"),
 	Services("Услуги", "services", "book.png"),
 	ReceptionStatuses("Статусы дел","statuses","flag_yellow.png"),

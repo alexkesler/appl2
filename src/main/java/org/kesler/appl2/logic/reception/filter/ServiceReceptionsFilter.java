@@ -39,7 +39,7 @@ public class ServiceReceptionsFilter implements ReceptionsFilter {
 	public String toString() {
 		String filterString  = "По услугам: (";
 		for (Service service: filterServices) {
-			filterString += service.getName() + ";";
+			filterString += service.getShortName() + ";";
 		}
 		filterString += ")";
 

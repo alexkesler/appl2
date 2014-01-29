@@ -118,7 +118,7 @@ public class Reception extends AbstractEntity{
 	public String getServiceName() {
 		String serviceName = "Услуга не определена";
 		if (service!=null) {
-			serviceName = service.getName();
+			serviceName = service.getShortName();
 		}
 		return serviceName;
 

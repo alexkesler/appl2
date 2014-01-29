@@ -8,7 +8,7 @@ public class TestService {
 	@Test
 	public void testCreateByName() {
 		Service service = new Service("Test");
-		String resultString = service.getName();
+		String resultString = service.getShortName();
 		assertEquals("Wrong name", "Test", resultString);
 		Long resultLong = service.getId();
 		assertNull("default id not Null", resultLong);

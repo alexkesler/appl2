@@ -273,6 +273,15 @@ class MakeReceptionView extends JDialog{
 					controller.addApplicatorFL();
 				}
 			});
+
+			JMenuItem ipMenuItem = new JMenuItem("ИП");
+			ipMenuItem.setIcon(ResourcesUtil.getIcon("user_suit.png"));
+			ipMenuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent ev) {
+					controller.addApplicatorIP();
+				}
+			});
+
 			JMenuItem ulMenuItem = new JMenuItem("Юр. лицо");
 			ulMenuItem.setIcon(ResourcesUtil.getIcon("chart_organisation.png"));
 			ulMenuItem.addActionListener(new ActionListener() {
@@ -282,6 +291,7 @@ class MakeReceptionView extends JDialog{
 			});
 
 			applicatorSelectorPopupMenu.add(flMenuItem);
+			applicatorSelectorPopupMenu.add(ipMenuItem);
 			applicatorSelectorPopupMenu.add(ulMenuItem);
 
 			addButton.addActionListener(new ActionListener() {

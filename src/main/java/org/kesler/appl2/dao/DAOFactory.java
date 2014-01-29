@@ -6,6 +6,7 @@ import org.kesler.appl2.dao.impl.GenericDAOImpl;
 
 import org.kesler.appl2.logic.Operator;
 import org.kesler.appl2.logic.FL;
+import org.kesler.appl2.logic.IP;
 import org.kesler.appl2.logic.UL;
 import org.kesler.appl2.logic.reception.ReceptionStatus;
 import org.kesler.appl2.util.Counter;
@@ -15,6 +16,7 @@ public class DAOFactory {
 	private static GenericDAO<Operator> operatorDAO = null;
 	private static ReceptionDAO receptionDAO = null;
 	private static GenericDAO<FL> flDAO = null;
+	private static GenericDAO<IP> ipDAO = null;
 	private static GenericDAO<UL> ulDAO = null;
 	private static GenericDAO<ReceptionStatus> receptionStatusDAO = null;
 	private static GenericDAO<Counter> counterDAO = null;
@@ -57,6 +59,13 @@ public class DAOFactory {
 		return flDAO;
 	}
 
+	public GenericDAO<IP> getIPDAO() {
+		if (ipDAO == null) {
+			ipDAO = new GenericDAOImpl<IP>(IP.class);
+		}
+		return ipDAO;
+	}
+
 	public GenericDAO<UL> getULDAO() {
 		if (ulDAO == null) {
 			ulDAO = new GenericDAOImpl<UL>(UL.class);
@@ -66,7 +75,7 @@ public class DAOFactory {
 
 	public GenericDAO<ReceptionStatus> getReceptionStatusDAO() {
 		if (receptionStatusDAO == null) {
-			receptionStatusDAO = new GenericDAOImpl<ReceptionStatus>(ReceptionStatus.class	);
+			receptionStatusDAO = new GenericDAOImpl<ReceptionStatus>(ReceptionStatus.class);
 		}
 		return receptionStatusDAO;
 	}

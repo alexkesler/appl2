@@ -60,7 +60,7 @@ class ApplicatorsMakeReceptionViewState extends MakeReceptionViewState {
 
 	void updatePanelData() {
 		view.getApplicatorsPanel().setApplicators(controller.getApplicators());
-		view.getApplicatorsPanel().setServiceName(controller.getService().getName());
+		view.getApplicatorsPanel().setServiceName(controller.getService().getShortName());
 	}
 
 

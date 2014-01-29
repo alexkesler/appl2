@@ -148,7 +148,7 @@ public class RosReestrReceptionPrinter extends ReceptionPrinter {
 		mappings.put("v_ReceptionCode", reception.getReceptionCode());
 		mappings.put("v_CurrentDate", dateFormat.format(reception.getOpenDate()));
 		mappings.put("v_Operator", reception.getOperator().getFIO());
-		mappings.put("v_Service", reception.getService().getName());
+		mappings.put("v_Service", reception.getService().getFullName());
 		mappings.put("v_Result_in_MFC", resultInMFCString);
 		mappings.put("v_ToIssueDate", dateFormat.format(reception.getToIssueDate()));
 

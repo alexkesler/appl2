@@ -68,6 +68,7 @@ public class HibernateUtil {
 						.addAnnotatedClass(org.kesler.appl2.logic.Filial.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.Applicator.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.applicator.ApplicatorFL.class)
+						.addAnnotatedClass(org.kesler.appl2.logic.applicator.ApplicatorIP.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.applicator.ApplicatorUL.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.Operator.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.Reception.class)
