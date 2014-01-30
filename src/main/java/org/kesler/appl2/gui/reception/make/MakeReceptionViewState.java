@@ -1,4 +1,4 @@
-package org.kesler.appl2.gui.reception;
+package org.kesler.appl2.gui.reception.make;
 
 abstract class MakeReceptionViewState {
 	protected MakeReceptionViewController controller;
@@ -20,6 +20,8 @@ abstract class MakeReceptionViewState {
 	void cancel() {
 		view.setVisible(false);
 	}
+
+	// abstract JPanel createPanel();
 
 	// Обновляет данные на панели
 	abstract void updatePanelData();

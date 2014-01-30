@@ -1,4 +1,4 @@
-package org.kesler.appl2.gui.reception;
+package org.kesler.appl2.gui.reception.make;
 
 import java.util.Date;
 import javax.swing.JOptionPane;

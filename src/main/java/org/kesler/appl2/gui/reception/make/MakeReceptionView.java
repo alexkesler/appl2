@@ -1,4 +1,4 @@
-package org.kesler.appl2.gui.reception;
+package org.kesler.appl2.gui.reception.make;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -246,12 +246,22 @@ class MakeReceptionView extends JDialog{
 
 			// Добавляем список заявителей
 			applicatorsListModel = new ApplicatorsListModel(controller.getApplicators());
-			JList applicatorsList = new JList(applicatorsListModel);
+			final JList applicatorsList = new JList(applicatorsListModel);
 
+			// Запоминаем выбранного заявителя
 			applicatorsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			applicatorsList.addListSelectionListener(new ListSelectionListener() {
 				public void valueChanged(ListSelectionEvent lse) {
-					selectedApplicatorIndex = lse.getFirstIndex();
+					selectedApplicatorIndex = applicatorsList.getSelectedIndex();
+				}
+			});
+
+			// Редактирование заявителя по двойному щелчку
+			applicatorsList.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseClicked(java.awt.event.MouseEvent ev) {
+					if (ev.getClickCount() == 2) {
+						controller.editApplicator(selectedApplicatorIndex);
+					}
 				}
 			});
 

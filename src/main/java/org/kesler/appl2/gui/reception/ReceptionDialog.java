@@ -23,7 +23,7 @@ import org.kesler.appl2.logic.reception.ReceptionsModel;
 import org.kesler.appl2.logic.Applicator;
 import org.kesler.appl2.logic.reception.ReceptionStatus;
 import org.kesler.appl2.logic.reception.ReceptionStatusesModel;
-import org.kesler.appl2.gui.reception.MakeReceptionViewController;
+import org.kesler.appl2.gui.reception.make.MakeReceptionViewController;
 
 
 

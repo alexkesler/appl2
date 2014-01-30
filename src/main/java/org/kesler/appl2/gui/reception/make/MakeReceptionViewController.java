@@ -1,4 +1,4 @@
-package org.kesler.appl2.gui.reception;
+package org.kesler.appl2.gui.reception.make;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ import org.kesler.appl2.logic.Operator;
 import org.kesler.appl2.logic.Service;
 import org.kesler.appl2.logic.Applicator;
 import org.kesler.appl2.logic.applicator.ApplicatorFL;
+import org.kesler.appl2.logic.applicator.ApplicatorIP;
 import org.kesler.appl2.logic.applicator.ApplicatorUL;
 import org.kesler.appl2.logic.Reception;
 import org.kesler.appl2.logic.reception.ReceptionsModel;
@@ -261,6 +262,11 @@ public class MakeReceptionViewController {
 			ApplicatorFLDialog flDialog = new ApplicatorFLDialog(view, currentApplicatorFL);
 			flDialog.setVisible(true);
 			if (flDialog.getResult() == ApplicatorFLDialog.OK) view.getApplicatorsPanel().applicatorUpdated(index);
+		} else if (currentApplicator instanceof ApplicatorIP) {
+			ApplicatorIP currentApplicatorIP = (ApplicatorIP) currentApplicator;
+			ApplicatorIPDialog ipDialog = new ApplicatorIPDialog(view, currentApplicatorIP);
+			ipDialog.setVisible(true);
+			if (ipDialog.getResult() == ApplicatorIPDialog.OK) view.getApplicatorsPanel().applicatorUpdated(index);
 		} else if (currentApplicator instanceof ApplicatorUL) {
 			ApplicatorUL currentApplicatorUL = (ApplicatorUL) currentApplicator;
 			ApplicatorULDialog ulDialog = new ApplicatorULDialog(view, currentApplicatorUL);

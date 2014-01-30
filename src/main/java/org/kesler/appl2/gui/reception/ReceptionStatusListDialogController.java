@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import org.kesler.appl2.logic.reception.ReceptionStatus;
 import org.kesler.appl2.logic.reception.ReceptionStatusesModel;
 
+
 public class ReceptionStatusListDialogController {
 
 	private ReceptionStatusListDialog dialog;

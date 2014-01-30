@@ -18,7 +18,7 @@ import org.kesler.appl2.util.HibernateUtil;
 import org.kesler.appl2.gui.services.ServicesDialogController;
 import org.kesler.appl2.gui.operators.OperatorListDialogController;
 import org.kesler.appl2.gui.statistic.StatisticViewController;
-import org.kesler.appl2.gui.reception.MakeReceptionViewController;
+import org.kesler.appl2.gui.reception.make.MakeReceptionViewController;
 import org.kesler.appl2.gui.reception.ReceptionStatusListDialogController;
 import org.kesler.appl2.gui.applicator.FLListDialogController;
 import org.kesler.appl2.gui.applicator.IPListDialogController;

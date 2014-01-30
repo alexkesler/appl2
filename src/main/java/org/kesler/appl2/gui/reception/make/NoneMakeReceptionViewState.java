@@ -1,4 +1,4 @@
-package org.kesler.appl2.gui.reception;
+package org.kesler.appl2.gui.reception.make;
 
 
 /// класс, представляющий пустое состояние

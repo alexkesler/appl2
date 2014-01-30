@@ -69,7 +69,7 @@ public class ApplicatorIPDialog extends AbstractDialog {
 		nameLabel.setBorder(BorderFactory.createEtchedBorder());
 
 		JButton selectIPButton = new JButton("Выбрать");
-		selectIPButton.setIcon(ResourcesUtil.getIcon("chart_organisation_add.png"));
+		selectIPButton.setIcon(ResourcesUtil.getIcon("user_suit.png"));
 		selectIPButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				selectApplicatorIP();
@@ -98,8 +98,8 @@ public class ApplicatorIPDialog extends AbstractDialog {
 
 
 
-		dataPanel.add(new JLabel("Юр. лицо:"),"span, wrap");
-		dataPanel.add(nameLabel,"grow, push, w 500, h 50");
+		dataPanel.add(new JLabel("Индивидуальный предприниматель:"),"span, wrap");
+		dataPanel.add(nameLabel,"grow, push, w 500");
 		dataPanel.add(selectIPButton, "wrap");
 	
 		dataPanel.add(new JLabel("Представитель:"), "wrap");

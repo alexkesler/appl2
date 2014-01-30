@@ -42,6 +42,8 @@ public class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO <T> 
 			notifyListeners(DAOState.WRITING);
 			tx = session.beginTransaction();
 			session.save(item);
+			session.flush();
+			session.clear();
 			tx.commit();
 			log.info("Adding item complete");
 			notifyListeners(DAOState.READY);
@@ -52,7 +54,7 @@ public class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO <T> 
 			notifyListeners(DAOState.ERROR);
 		} finally {
 			if (session != null && session.isOpen()) {
-				session.close();		
+				session.close();
 			}
 		}
 
@@ -71,6 +73,8 @@ public class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO <T> 
 			notifyListeners(DAOState.WRITING);
 			tx = session.beginTransaction();
 			session.update(item);
+			session.flush();
+			session.clear();
 			tx.commit();
 			log.info("Updating item complete");
 			notifyListeners(DAOState.READY);
@@ -141,6 +145,8 @@ public class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO <T> 
 			notifyListeners(DAOState.WRITING);
 			tx = session.beginTransaction();
 			session.delete(item);
+			session.flush();
+			session.clear();
 			tx.commit();
 			log.info("Item removed");
 			notifyListeners(DAOState.READY);
