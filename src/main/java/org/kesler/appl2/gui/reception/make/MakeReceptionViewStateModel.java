@@ -26,6 +26,9 @@ public class MakeReceptionViewStateModel {
 
 	private void initStates() {
 		states.add(new ServiceMakeReceptionViewState(controller, view));
+		states.add(new ApplicatorsMakeReceptionViewState(controller, view));
+		states.add(new DataMakeReceptionViewState(controller, view));
+		states.add(new PrintMakeReceptionViewState(controller, view));
 	}
 
 }

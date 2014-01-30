@@ -173,7 +173,7 @@ public class GenericListDialog<T> extends AbstractDialog {
 		itemsList = new JList(itemsListModel);
 		// Можно выбрать только один элемент
 		itemsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
+		// Запоминаем выбраный элемент
 		itemsList.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent lse) {
@@ -184,7 +184,7 @@ public class GenericListDialog<T> extends AbstractDialog {
 		});
 
 
-		/// добавление реакции на двойной клик - открытие приема на просмотр
+		/// добавление реакции на двойной клик - открытие приема на просмотр либо выбор
 		itemsList.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent ev) {
 				if (ev.getClickCount() == 2) {
