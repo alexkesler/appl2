@@ -2,15 +2,16 @@ package org.kesler.appl2.logic.document;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import org.kesler.appl2.dao.AbstractEntity;
 
+/**
+ * Сущность для хранения документа с доступными типами
+ */
 @Entity
-@Table(name="TypedDocuments")
-public class TypedDocument extends AbstractEntity {
+@Table(name="DocumentsWithTypes")
+public class DocumentWithTypes extends AbstractEntity {
 
 	@Column(name="Name")
 	private Document document;
@@ -18,9 +19,12 @@ public class TypedDocument extends AbstractEntity {
 	// @OneToMany (fetch = FetchType.EAGER, mappedBy="reception")
 	// @Cascade ({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	// @Fetch(FetchMode.SUBSELECT)
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	private List<DocumentType> allowedTypes;
 
-	public TypedDocument() {}
+	public DocumentWithTypes() {
+
+    }
 
 	public Document getDocument() {
 		return document;
@@ -29,5 +33,9 @@ public class TypedDocument extends AbstractEntity {
 	public void setDocument(Document document) {
 		this.document = document;
 	}
+
+    public List<DocumentType> getAllowedTypes() {return allowedTypes;}
+
+    public void setAllowedTypes(List<DocumentType> allowedTypes) {this.allowedTypes = allowedTypes;}
 
 }

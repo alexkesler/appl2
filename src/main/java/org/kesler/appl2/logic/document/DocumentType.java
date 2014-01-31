@@ -7,6 +7,10 @@ import javax.persistence.Column;
 
 import org.kesler.appl2.dao.AbstractEntity;
 
+/**
+ *  Класс определяет тип документа
+ */
+
 @Entity
 @Table(name="DocumentTypes")
 public class DocumentType extends AbstractEntity {

@@ -1,4 +1,4 @@
-package org.kesler.appl2.logic;
+package org.kesler.appl2.logic.document;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
