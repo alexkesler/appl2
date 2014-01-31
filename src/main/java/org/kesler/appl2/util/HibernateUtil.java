@@ -1,15 +1,20 @@
 package org.kesler.appl2.util;
 
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.HibernateException;
 import java.util.Properties;
 
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 import org.kesler.appl2.util.OptionsUtil;
 
 public class HibernateUtil {
+    private static final Logger log = Logger.getLogger(HibernateUtil.class.getSimpleName());
 	private static SessionFactory sessionFactory = null;
+    private static ServiceRegistry serviceRegistry = null;
 
 
 	private static void createSessionFactory() {
@@ -60,7 +65,7 @@ public class HibernateUtil {
 		hibernateProperties.setProperty("hibernate.show_sql","true");
 
 
-		Configuration hibernateConfiguration = new AnnotationConfiguration()
+		Configuration hibernateConfiguration = new Configuration()
 						.addAnnotatedClass(org.kesler.appl2.logic.Service.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.FL.class)
 						.addAnnotatedClass(org.kesler.appl2.logic.IP.class)
@@ -77,23 +82,17 @@ public class HibernateUtil {
 						.addAnnotatedClass(org.kesler.appl2.util.Counter.class)
 						.setProperties(hibernateProperties);
 
-		/// Пытаемся сконфигурировать Hibernate
-		// System.out.println("Configuring Hibernate ...");
-		// try {
-			// Читаем конфигурацию из hibernate.cfg.xml
-// 			hibernateConfiguration = hibernateConfiguration.configure();
-// 		} catch (HibernateException he) {
-// 			System.err.println("Hibernate configurationError");
-// 			he.printStackTrace();
-// 		}
 
-		System.out.println("Building Hibernate session factory ...");
+        serviceRegistry = new ServiceRegistryBuilder().applySettings(hibernateProperties).buildServiceRegistry();
+
+		log.info("Building Hibernate session factory ...");
+
 		try {
+
 			//creates session factory
-			sessionFactory = hibernateConfiguration.buildSessionFactory();
-		} catch (HibernateException he) {
-			System.err.println("Hibernate session factory create Error");
-			he.printStackTrace();
+			sessionFactory = hibernateConfiguration.buildSessionFactory(serviceRegistry);
+		} catch (HibernateException he)  {
+			log.error("Hibernate session factory create Error", he);
 		}
 	}
 

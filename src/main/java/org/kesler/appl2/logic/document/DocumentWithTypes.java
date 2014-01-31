@@ -16,15 +16,10 @@ public class DocumentWithTypes extends AbstractEntity {
 	@Column(name="Name")
 	private Document document;
 
-	// @OneToMany (fetch = FetchType.EAGER, mappedBy="reception")
-	// @Cascade ({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	// @Fetch(FetchMode.SUBSELECT)
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	private List<DocumentType> allowedTypes;
 
-	public DocumentWithTypes() {
-
-    }
+	public DocumentWithTypes() {    }
 
 	public Document getDocument() {
 		return document;

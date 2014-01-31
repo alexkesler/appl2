@@ -2,10 +2,7 @@ package org.kesler.appl2.logic.document;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import org.kesler.appl2.dao.AbstractEntity;
 
@@ -19,7 +16,7 @@ public class Condition extends AbstractEntity {
 	@Column(name="Name", length=255)
 	private String name;
 
-	@ManyToMany()
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	private List<DocumentWithTypes> documentsWithTypes;
 
 	public Condition() {}
